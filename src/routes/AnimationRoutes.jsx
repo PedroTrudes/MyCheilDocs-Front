@@ -5,6 +5,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 import Feed from '../screens/Feed';
+import UserProfile from '../screens/UserProfile';
 
 export default function AnimatedRoutes() {
     const location = useLocation();
@@ -49,6 +50,17 @@ export default function AnimatedRoutes() {
                         <ProtectedRoute>
                             <motion.div style={{ height: "100vh", overflow: "hidden" }} {...pageTransition}>
                                 <Feed />
+                            </motion.div>
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route 
+                    path='/profile'
+                    element={
+                        <ProtectedRoute>
+                            <motion.div style={{ height: "100vh", overflow: "hidden" }} {...pageTransition}>
+                                <UserProfile />
                             </motion.div>
                         </ProtectedRoute>
                     }
