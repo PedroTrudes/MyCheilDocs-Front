@@ -56,7 +56,7 @@ export default function AnimatedRoutes() {
                 />
 
                 <Route 
-                    path='/profile'
+                    path='/profile/:id'
                     element={
                         <ProtectedRoute>
                             <motion.div style={{ height: "100vh", overflow: "hidden" }} {...pageTransition}>
