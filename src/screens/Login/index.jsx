@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AlertMessage from "../../components/alertMessage";
-
+//import { jwtDecode } from "jwt-decode";
 import AssetLogin from "../../assets/SamsungDevices.jpg";
 import "./login.scss";
 import axios from "axios";
@@ -29,6 +29,8 @@ function Login() {
 
   useEffect(() => {
     alertMessage();
+    
+    
   }, [sucessLogin]);
 
   const handleLogin = async (e) => {
@@ -44,6 +46,8 @@ function Login() {
         setToken(saveToken);
         localStorage.setItem("token", saveToken);
         navigate("/feed");
+        
+        
     } catch (error) {
         alertMessage();
         setSucessLogin('error');

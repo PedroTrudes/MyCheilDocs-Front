@@ -3,8 +3,8 @@ import "./userIcon.scss";
 import { useEffect, useState } from 'react';
 import ModalOptions from '../modalOptions';
 
-function UserIcon({typeUser}) {
-
+function UserIcon({typeUser, nameUser}) {
+    //const userInfos = authServices.getUser();
     const icons = {man: Mars, woman: Venus, group: Users}
     const IconComponent = icons[typeUser] || Users;
     const [openOptions, setOpenOptions] = useState(false);
@@ -20,12 +20,12 @@ function UserIcon({typeUser}) {
         }
     }
     useEffect(() => {
-        console.log("Mudou");
+        //console.log("Mudou");
     }, [openOptions])
 
     return(
         <div className="containerIcon" onClick={OptionsUsers}>
-            <span className='iconName'>Pedro</span>
+            <span className='iconName'>{nameUser}</span>
             <IconComponent />
 
             {!openOptions && (
