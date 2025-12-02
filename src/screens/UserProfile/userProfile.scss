@@ -1,3 +1,42 @@
-.teste{
-    background-color: red;
+.containerUserInformation{
+    margin: 0px 250px;
+    .containerUser{
+        height: 250px;
+        position: relative;
+        
+        .backgroundUser{
+            height: 100%;
+            width: 100%;
+            background-color: rgb(156, 156, 156);
+            border-radius: 0px 0px 48px 48px;
+            
+        }
+        .userInfos{
+            position: absolute;
+            width: 100%;
+            bottom: -105px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            img{
+                width: 95px;
+            }
+
+            .userLabel{
+                //border: 1px solid blue;
+                padding: 3px 18px;
+                border-radius: 18px;
+                background: linear-gradient(120deg, #fafafa, #f0f0f0);
+                color: #2a2a2a;
+            }
+        }
+    }
+}
+
+.containerPostByUser{
+    border: 1px solid green;
+    margin: 150px 250px;
+    height: 50vh;
+    overflow-y: auto;
 }

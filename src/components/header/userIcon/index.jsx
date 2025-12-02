@@ -7,7 +7,7 @@ function UserIcon({typeUser, nameUser}) {
     //const userInfos = authServices.getUser();
     const icons = {man: Mars, woman: Venus, group: Users}
     const IconComponent = icons[typeUser] || Users;
-    const [openOptions, setOpenOptions] = useState(false);
+    const [openOptions, setOpenOptions] = useState(true);
     
     //Vamos criar props in modal option passando as infos do user
     function OptionsUsers(){

@@ -1,10 +1,12 @@
-import "./profileButton.scss"
 import { useNavigate } from "react-router-dom";
+import authServices from "../../../../services/authServices";
+import "./profileButton.scss"
 
 function ProfileButton() {
     const navigate = useNavigate();
+    const idUserLogged = authServices.getUser();
     function navigateProfile(){
-        navigate("/profile");
+        navigate(`/profile/${idUserLogged.id}`);
     }
 
     return(
