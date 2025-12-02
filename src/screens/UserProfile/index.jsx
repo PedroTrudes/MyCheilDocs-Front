@@ -6,6 +6,7 @@ import Card from "../../components/post/card";
 import "./userProfile.scss";
 import userPhoto from "../../assets/userImage/userDefault.png";
 import postServices from "../../services/postServices";
+import { h1 } from "framer-motion/client";
 
 function UserProfile() {
   const { id } = useParams();
@@ -52,13 +53,21 @@ function UserProfile() {
       </div>
 
       <div className="containerPostByUser">
-        
          <span>Minhas postagens</span>
          <div className="containerCardsPost">
-
-          {postByUser.map((post) => (
-            <Card userPost={post.user_post_fk.name_user} positionPost={post.label_post_fk.name_job} tituloPost={post.titulo_post} descriptionPost={post.description_post} dtCreatePost={post.createdAt} />
-          ))
+          {postByUser.length > 0 ? (
+            postByUser.map((post) => (
+              <Card 
+              key={post.id}
+              userPost={post.user_post_fk.name_user} 
+              positionPost={post.label_post_fk.name_job} 
+              tituloPost={post.titulo_post} 
+              descriptionPost={post.description_post} 
+              dtCreatePost={post.createdAt} />
+            ))
+          ): (
+            <span>Esse usuário ainda não publicou nada.</span>
+          )
         }
         </div>
 
