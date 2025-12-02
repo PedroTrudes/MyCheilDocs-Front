@@ -1,4 +1,5 @@
 import {Mars, Users, Venus}  from 'lucide-react';
+import dayjs from 'dayjs';
 import "./card.scss";
 
 
@@ -33,7 +34,7 @@ function Card({userPost, positionPost , tituloPost, descriptionPost, dtCreatePos
                     <p>{descriptionPost}</p>
                 </div>
                 <div className="cardPostData">
-                    <span>{dtCreatePost}</span>
+                    <span>{dayjs(dtCreatePost).format("DD/MM/YYYY")}</span>
                 </div>
             </div>
         </div>

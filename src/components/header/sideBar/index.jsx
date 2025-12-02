@@ -17,7 +17,7 @@ function SideBar({isActiveMenu}){
 
     return(
       <div className={`containerNavBar ${isActiveMenu ? "sideBarIsOpen" : "sideBarIsClosed"}`}>
-        {menuJobFilter.map((menu, index) => { 
+        {menuJobFilter.map((menu, index) => {  
           const IconJob = menu.icon;
           return(
               <button className={`buttonNavBar ${isActiveMenu ? "" : ""}`}>

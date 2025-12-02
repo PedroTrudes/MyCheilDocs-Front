@@ -5,12 +5,15 @@
     align-items: center;
     background-color: rgb(245, 245, 245);
 
+    h2{
+        //border: 1px solid blue;
+        margin-left: 115px;
+    }
     #hamburguerMenu{
         display: none;
     }
 
     .containerHeaderProfile{
-        border: 1px solid red;
         display: flex;
         flex-direction: row-reverse;
     }

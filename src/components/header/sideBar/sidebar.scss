@@ -1,7 +1,8 @@
 .containerMenu{
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: fixed;
+    //border: 1px solid red;
 
         .containerButtons{
         position: absolute;

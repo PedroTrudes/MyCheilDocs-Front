@@ -54,11 +54,13 @@ function UserProfile() {
       <div className="containerPostByUser">
         
          <span>Minhas postagens</span>
+         <div className="containerCardsPost">
+
           {postByUser.map((post) => (
-          <Card userPost={post.user_post_fk.name_user} positionPost={post.label_post_fk.name_job} tituloPost={post.titulo_post} descriptionPost={post.description_post} dtCreatePost={post.createdAt} />
-        ))
-          }
-        <pre>{JSON.stringify(postByUser, null, 2)}</pre> 
+            <Card userPost={post.user_post_fk.name_user} positionPost={post.label_post_fk.name_job} tituloPost={post.titulo_post} descriptionPost={post.description_post} dtCreatePost={post.createdAt} />
+          ))
+        }
+        </div>
 
       </div>
       
@@ -67,6 +69,7 @@ function UserProfile() {
 }
 
 /*postByUser.map((post) => (
+<pre>{JSON.stringify(postByUser, null, 2)}</pre> 
           <Card titulo={post.titulo_post} description={post.description_post} dtCreate={post.createAt}/>
           
         ))
