@@ -12,6 +12,20 @@ class Post{
         return data;
     }
 
+    async getAllPostPagination(limit = 5, cursor = null){
+        try {
+            const response = await api.get("/post-pagination", {
+                params : {
+                    limit, cursor:  cursor || undefined,
+                },
+            });
+
+            return response.data;
+        } catch (error) {
+            console.error("Erro ao buscar postagens", error);
+            throw error;
+        }
+    }
 
 }
 

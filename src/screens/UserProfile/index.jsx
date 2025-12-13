@@ -6,7 +6,6 @@ import Card from "../../components/post/card";
 import "./userProfile.scss";
 import userPhoto from "../../assets/userImage/userDefault.png";
 import postServices from "../../services/postServices";
-import { h1 } from "framer-motion/client";
 
 function UserProfile() {
   const { id } = useParams();
