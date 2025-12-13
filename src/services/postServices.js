@@ -12,11 +12,14 @@ class Post{
         return data;
     }
 
-    async getAllPostPagination(limit = 5, cursor = null){
+    async getAllPostPagination(limit = 5, cursor = null, jobPosition = null, title = null){
         try {
             const response = await api.get("/post-pagination", {
                 params : {
-                    limit, cursor:  cursor || undefined,
+                    limit, 
+                    cursor:  cursor || undefined, 
+                    jobPosition, 
+                    title
                 },
             });
 

@@ -4,26 +4,26 @@ import Card from "../../components/post/card";
 import "./feed.scss";
 import { jwtDecode } from "jwt-decode";
 import postServices from "../../services/postServices";
-import { div } from "framer-motion/client";
 
 function Feed() {
     const token = localStorage.getItem("token");
-    const userInfos = jwtDecode(token)
+    const userInfos = jwtDecode(token);
     
     const [posts, setPosts] = useState([]);
     const [cursor, setCursor] = useState(null);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
-
+    const [positionJobFeed, setPositionJobFeed] = useState("67dc7aeae4ae3efcc2984aee");// Não vamos usar ele statico vai ser dinamico.
+    const [searchTitle, setSearchTitle] = useState("");// estamos passando de forma statica, vamos mudar para dinamica
+    
     const observerRef = useRef();
 
     const fetchPosts = useCallback(async () => {
         if (loading || !hasMore) return;
-
         setLoading(true);
         
         try {
-            const data = await postServices.getAllPostPagination(5, cursor);
+            const data = await postServices.getAllPostPagination(5, cursor, positionJobFeed, searchTitle);
 
             const newPost = data.posts;
             const nextCursor = data.nextCursor;
@@ -35,20 +35,21 @@ function Feed() {
 
             setCursor(nextCursor);
             setHasMore(nextCursor !== null);
-            console.log(data)
+            console.log(data , positionJobFeed)
 
         } catch (error) {
             console.log("Erro no fetch", error)
         }
 
         setLoading(false);
-    }, [cursor, loading, hasMore]);
+    }, [cursor, loading, hasMore, positionJobFeed, searchTitle]);
 
     useEffect(() => {
-        fetchPosts();
-    }, []);
+        fetchPosts(); 
+    }, [positionJobFeed, searchTitle]);
 
     const lastPostRef = useCallback((node) => {
+        
         if(loading) return;
 
         if(observerRef.current) observerRef.current.disconnect();

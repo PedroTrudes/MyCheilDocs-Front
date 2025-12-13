@@ -3,13 +3,11 @@
     .containerUser{
         height: 120px;
         position: relative;
-        
         .backgroundUser{
             height: 100%;
             width: 100%;
             background-color: rgb(156, 156, 156);
             border-radius: 0px 0px 48px 48px;
-            
         }
         .userInfos{
             position: absolute;
@@ -24,7 +22,6 @@
             }
 
             .userLabel{
-                //border: 1px solid blue;
                 padding: 3px 18px;
                 border-radius: 18px;
                 background: linear-gradient(120deg, #fafafa, #f0f0f0);
@@ -43,9 +40,9 @@
     justify-content: center;
     flex-direction: column;
     .containerCardsPost{
-        width: 50%;
+        width: 80%;
         flex: 1;
-        overflow-y: auto; /* habilita scroll */
+        overflow-y: auto;
         padding: 16px;
         box-sizing: border-box;
         scrollbar-width: none;
