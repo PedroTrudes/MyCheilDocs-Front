@@ -13,14 +13,11 @@ function UserIcon({typeUser, nameUser}) {
     function OptionsUsers(){
         if(!openOptions){
             setOpenOptions(true);
-            return <>Chamando componente</>
         }else{
             setOpenOptions(false);
-            return <>Não é true não chamamos o componente</>
         }
     }
     useEffect(() => {
-        //console.log("Mudou");
     }, [openOptions])
 
     return(

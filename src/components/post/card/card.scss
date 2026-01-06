@@ -11,6 +11,7 @@
         .cardHeaderUser{
             display: flex;
             align-items: center;
+
             .userImage{
                 margin: 5px;
             }
@@ -66,5 +67,32 @@
             padding: 0px 18px;
         }
 
+    }
+}
+
+.cardHeaderOption{
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .iconDelete{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .iconEdit{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }

@@ -12,6 +12,12 @@ function UserProfile() {
   const [user, setUser] = useState(null);
   const [postByUser, setPostByUser] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  function handleRemovePost(postId){
+    setPostByUser((prevPosts) => {
+      return prevPosts.filter((post) => post._id !== postId);
+    })
+  }
   
   useEffect(() => {
     async function loadUser() {
@@ -57,12 +63,16 @@ function UserProfile() {
           {postByUser.length > 0 ? (
             postByUser.map((post) => (
               <Card 
-              key={post.id}
+              key={post._id}
+              postId={post._id}
               userPost={post.user_post_fk.name_user} 
               positionPost={post.label_post_fk.name_job} 
               tituloPost={post.titulo_post} 
               descriptionPost={post.description_post} 
-              dtCreatePost={post.createdAt} />
+              dtCreatePost={post.createdAt} 
+              idUser={post.user_post_fk?._id}
+              onDelete={handleRemovePost}
+              />
             ))
           ): (
             <span>Esse usuário ainda não publicou nada.</span>

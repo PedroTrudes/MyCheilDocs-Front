@@ -13,7 +13,7 @@ function Feed() {
     const [cursor, setCursor] = useState(null);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
-    const [positionJobFeed, setPositionJobFeed] = useState("67dc7aeae4ae3efcc2984aee");// Não vamos usar ele statico vai ser dinamico.
+    const [positionJobFeed, setPositionJobFeed] = useState("");// Não vamos usar ele statico vai ser dinamico.67dc7aeae4ae3efcc2984aee
     const [searchTitle, setSearchTitle] = useState("");// estamos passando de forma statica, vamos mudar para dinamica
     
     const observerRef = useRef();

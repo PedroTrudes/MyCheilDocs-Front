@@ -30,6 +30,10 @@ class Post{
         }
     }
 
+    async deletePost(idPost) {
+        return await api.delete(`/post/${idPost}`)
+    }
+
 }
 
 export default new Post();

@@ -1,20 +1,31 @@
-import {Mars, Users, Venus}  from 'lucide-react';
+import {Users, Pencil, Trash}  from 'lucide-react';
 import dayjs from 'dayjs';
 import "./card.scss";
 import authServices from '../../../services/authServices';
+import postServices from '../../../services/postServices';
 
 
-function Card({userPost, 
+function Card({postId,
+    userPost, 
     positionPost , 
     tituloPost, 
     descriptionPost, 
     dtCreatePost,
-    idUser}){
+    idUser,
+    onDelete
+}){
 
     const userActive = authServices.getUser();
+    const isOwner = userActive && userActive.id && idUser && userActive.id === idUser;
+    console.log(postId)
 
-    const isOwner = userActive.id && idUser && userActive.id === idUser;
-
+    function optionDeletePost(){
+        postServices.deletePost(postId).then(() => {{
+            onDelete(postId)
+        }}).catch((error) => {
+            console.error("Erro ao excluir post", error);
+        })
+    }
     return(
         <div className="containerCard">
             <div className="containerCardHeader">
@@ -30,7 +41,12 @@ function Card({userPost,
                 </div>
                 {isOwner &&(
                     <div className="cardHeaderOption">
-                        <span>...</span>
+                        <button className="iconDelete" onClick={optionDeletePost}>
+                            <Trash size={22} />
+                        </button>
+                        <button className="iconEdit">
+                            <Pencil size={22} />
+                        </button>
                     </div>
                 )}
             </div>
