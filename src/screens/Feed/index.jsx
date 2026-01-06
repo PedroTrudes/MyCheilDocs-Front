@@ -75,15 +75,18 @@ function Feed() {
                 {posts.map((post, index) => {
                     const userName = post.user_post_fk?.name_user ?? "Usuário";
                     const jobName = post.label_post_fk?.name_job ?? "Cargo";
+                    const userKey = post.user_post_fk?._id ?? "key";
                     if(index === posts.length -1){
                         return(
                             <div ref={lastPostRef} key={post._id} className="containerLastPost">
                                 <Card 
                                     userPost={userName} 
                                     positionPost={jobName} 
+                                    idUser={userKey}
                                     tituloPost={post.titulo_post} 
                                     descriptionPost={post.description_post} 
                                     dtCreatePost={post.createdAt}
+                                    
                                 />
                             </div>
                         );
@@ -91,7 +94,8 @@ function Feed() {
                     return(
                         <Card key={post._id}
                         userPost={userName} 
-                        positionPost={jobName} 
+                        positionPost={jobName}
+                        idUser={userKey} 
                         tituloPost={post.titulo_post} 
                         descriptionPost={post.description_post} 
                         dtCreatePost={post.createdAt}

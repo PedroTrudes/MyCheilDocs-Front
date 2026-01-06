@@ -1,9 +1,20 @@
 import {Mars, Users, Venus}  from 'lucide-react';
 import dayjs from 'dayjs';
 import "./card.scss";
+import authServices from '../../../services/authServices';
 
 
-function Card({userPost, positionPost , tituloPost, descriptionPost, dtCreatePost}){
+function Card({userPost, 
+    positionPost , 
+    tituloPost, 
+    descriptionPost, 
+    dtCreatePost,
+    idUser}){
+
+    const userActive = authServices.getUser();
+
+    const isOwner = userActive.id && idUser && userActive.id === idUser;
+
     return(
         <div className="containerCard">
             <div className="containerCardHeader">
@@ -13,12 +24,15 @@ function Card({userPost, positionPost , tituloPost, descriptionPost, dtCreatePos
                     </div>
                     <div className="userInfos">
                         <span className="userName">{userPost}</span>
+                        <span className='userName'>{idUser}</span>
                         
                     </div>
                 </div>
-                <div className="cardHeaderOption">
-                    <span>...</span>
-                </div>
+                {isOwner &&(
+                    <div className="cardHeaderOption">
+                        <span>...</span>
+                    </div>
+                )}
             </div>
 
             <div className="containerCardPost">
