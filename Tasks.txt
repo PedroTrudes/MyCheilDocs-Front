@@ -1,0 +1,2 @@
+[] - passar o id do job quando clicar no menu.
+[] - criar o input que vai manipular o search das postagens.

@@ -76,12 +76,4 @@ function UserProfile() {
   );
 }
 
-/*postByUser.map((post) => (
-<pre>{JSON.stringify(postByUser, null, 2)}</pre> 
-          <Card titulo={post.titulo_post} description={post.description_post} dtCreate={post.createAt}/>
-          
-        ))
-       */
-
-
 export default UserProfile;

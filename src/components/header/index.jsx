@@ -26,7 +26,7 @@ function HeaderApplication() {
             onChange={handleCheckboxChange}
           />
           <h2>MyCheil-DOCS</h2>
-          <UserIcon typeUser={userInfos.avatar} nameUser={userInfos.name}/>
+          <UserIcon typeUser={userInfos?.avatar} nameUser={userInfos?.name}/>
     </div>
   );
 }

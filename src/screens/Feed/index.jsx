@@ -21,7 +21,6 @@ function Feed() {
     const fetchPosts = useCallback(async () => {
         if (loading || !hasMore) return;
         setLoading(true);
-        
         try {
             const data = await postServices.getAllPostPagination(5, cursor, positionJobFeed, searchTitle);
 
